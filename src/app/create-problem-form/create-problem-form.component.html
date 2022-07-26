@@ -1,0 +1,20 @@
+<form [formGroup]="formGroup" (ngSubmit)="save()">
+  <div>
+    <label for="title">問題名</label>
+    <input id="title" type="text" formControlName="title">
+  </div>
+
+  <div>
+    <label for="source">出典</label>
+    <input id="source" type="text" formControlName="source">
+  </div>
+
+  <div>
+    <label for="statement">問題文</label>
+    <textarea id="statement" formControlName="statement"></textarea>
+  </div>
+
+  <div>
+    <input type="submit" value="投稿">
+  </div>
+</form>

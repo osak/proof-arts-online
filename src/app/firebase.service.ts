@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
-import {FirebaseApp, initializeApp } from 'firebase/app';
-import {Analytics, getAnalytics } from 'firebase/analytics';
+import {Injectable} from '@angular/core';
+import {FirebaseApp, initializeApp} from 'firebase/app';
+import {Analytics, getAnalytics} from 'firebase/analytics';
 import {Firestore, getFirestore} from 'firebase/firestore';
+import {Auth, getAuth} from 'firebase/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +11,9 @@ export class FirebaseService {
   readonly app: FirebaseApp;
   readonly analytics: Analytics;
   readonly db: Firestore;
+  readonly auth: Auth;
 
   constructor() {
-
     const firebaseConfig = {
       apiKey: "AIzaSyBZyzxBR0CgYXIJxHEUatoujX9GKEZh2yA",
       authDomain: "proof-arts-online.firebaseapp.com",
@@ -23,9 +24,9 @@ export class FirebaseService {
       measurementId: "G-8ZTGHT40FQ"
     };
 
-
     this.app = initializeApp(firebaseConfig);
     this.analytics = getAnalytics(this.app);
     this.db = getFirestore(this.app);
+    this.auth = getAuth(this.app);
   }
 }

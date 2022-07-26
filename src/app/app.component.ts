@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {UserService} from "./user.service";
+import {ProblemService} from "./problem.service";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,30 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'proof-arts-online';
+  title = 'Proof Arts Online';
+
+  constructor(
+    private userService: UserService,
+    private problemService: ProblemService,
+  ) {
+  }
+
+  ngOnInit(): void {
+  }
+
+  signIn() {
+    this.userService.signIn();
+  }
+
+  signOut() {
+    this.userService.signOut();
+  }
+
+  get user() {
+    return this.userService.user;
+  }
+
+  get problems() {
+    return this.problemService.problems;
+  }
 }
