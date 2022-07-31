@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {UserService} from "./user.service";
 import {ProblemService} from "./problem.service";
+import {Problem} from "../models/problem";
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,7 @@ import {ProblemService} from "./problem.service";
 })
 export class AppComponent {
   title = 'Proof Arts Online';
+  currentProblem?: Problem;
 
   constructor(
     private userService: UserService,
@@ -25,6 +27,10 @@ export class AppComponent {
 
   signOut() {
     this.userService.signOut();
+  }
+
+  openProblem(problem: Problem) {
+    this.currentProblem = problem;
   }
 
   get user() {
