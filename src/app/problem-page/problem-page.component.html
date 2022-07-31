@@ -1,0 +1,4 @@
+<div *ngIf="problem$ | async as problem">
+  <h1>{{problem.title}}</h1>
+  <app-mathjax-viewer source="{{problem.statement}}"></app-mathjax-viewer>
+</div>

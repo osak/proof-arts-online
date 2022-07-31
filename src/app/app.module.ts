@@ -9,13 +9,21 @@ import { CreateProblemFormComponent } from './create-problem-form/create-problem
 import {ReactiveFormsModule} from "@angular/forms";
 import { MathjaxEditorComponent } from './mathjax-editor/mathjax-editor.component';
 import { MathjaxViewerComponent } from './mathjax-viewer/mathjax-viewer.component';
+import { CreateProblemPageComponent } from './create-problem-page/create-problem-page.component';
+import { ProblemPageComponent } from './problem-page/problem-page.component';
+import {RouterModule} from "@angular/router";
+import {MatListModule} from "@angular/material/list";
+import { ProblemsListPageComponent } from './problems-list-page/problems-list-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateProblemFormComponent,
     MathjaxEditorComponent,
-    MathjaxViewerComponent
+    MathjaxViewerComponent,
+    CreateProblemPageComponent,
+    ProblemPageComponent,
+    ProblemsListPageComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +31,12 @@ import { MathjaxViewerComponent } from './mathjax-viewer/mathjax-viewer.componen
     MatToolbarModule,
     MatButtonModule,
     ReactiveFormsModule,
+    RouterModule.forRoot([
+      {path: 'create_problem', component: CreateProblemPageComponent},
+      {path: 'problem/:id', component: ProblemPageComponent},
+      {path: 'problem', component: ProblemsListPageComponent},
+    ]),
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,9 @@
 <mat-toolbar>
   <span>Proof Arts Online</span>
+  <nav>
+    <a mat-button routerLink="/problem">問題リスト</a>
+    <a mat-button routerLink="/create_problem">出題する</a>
+  </nav>
   <span class="spacer"></span>
   <button mat-button (click)="signIn()" *ngIf="user == null">Sign In</button>
   <span *ngIf="user != null">{{user.displayName}}</span>
@@ -8,10 +12,6 @@
 
 <div id="firebaseui-auth-container"></div>
 
-<app-create-problem-form></app-create-problem-form>
-
-<ul>
-  <li *ngFor="let problem of problems"><a href="#" (click)="openProblem(problem)">{{problem.title}}</a></li>
-</ul>
+<router-outlet></router-outlet>
 
 <app-mathjax-viewer source="{{currentProblem.statement}}" *ngIf="currentProblem != null"></app-mathjax-viewer>
