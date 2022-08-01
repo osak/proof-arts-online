@@ -1,20 +1,18 @@
 <form [formGroup]="formGroup" (ngSubmit)="save()">
-  <div>
-    <label for="title">問題名</label>
-    <input id="title" type="text" formControlName="title">
-  </div>
+  <mat-form-field>
+    <mat-label>問題名</mat-label>
+    <input matInput id="title" type="text" formControlName="title">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>出典</mat-label>
+    <input matInput id="source" type="text" formControlName="source">
+  </mat-form-field>
+
+  <!--<textarea matInput id="statement" formControlName="statement"></textarea>-->
+  <app-mathjax-editor [control]="formGroup.controls.statement" label="問題文"></app-mathjax-editor>
 
   <div>
-    <label for="source">出典</label>
-    <input id="source" type="text" formControlName="source">
-  </div>
-
-  <div>
-    <label for="statement">問題文</label>
-    <textarea id="statement" formControlName="statement"></textarea>
-  </div>
-
-  <div>
-    <input type="submit" value="投稿">
+    <button type="submit" mat-raised-button color="primary">投稿</button>
   </div>
 </form>

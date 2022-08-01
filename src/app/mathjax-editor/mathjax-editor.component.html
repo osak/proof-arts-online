@@ -1,0 +1,5 @@
+<mat-form-field class="textarea">
+  <mat-label>{{label}}</mat-label>
+  <textarea matInput name="content" [formControl]="control" (keydown)="update()" rows="10"></textarea>
+</mat-form-field>
+<app-mathjax-viewer class="preview" [source]="previewContent"></app-mathjax-viewer>
