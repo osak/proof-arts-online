@@ -7,3 +7,11 @@
   min-width: 500px;
   margin: auto;
 }
+
+.title {
+  text-decoration: none;
+
+  &:visited {
+    color: black;
+  }
+}
